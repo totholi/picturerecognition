@@ -111,7 +111,7 @@
         } catch (err) {
             showResult('Error analyzing emoji.', 'danger');
         }
-        try {
+        /**try {
             const response = await fetch('/jdlanalyze', {
                 method: 'POST',
                 body: formData
@@ -120,7 +120,7 @@
             showJDLResult(result, 'success');
         } catch (err) {
             showJDLResult('Error analyzing emoji.', 'danger');
-        }
+        }**/
     });
 </script>
 </body>
