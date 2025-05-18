@@ -23,7 +23,7 @@
 </head>
 <body>
 <div class="container py-5">
-    <h1 class="text-center mb-4 display-5 fw-bold">Emoji Happiness Calculator</h1>
+    <h1 class="text-center mb-4 display-5 fw-bold">Emoji Happinesssafdfsdf Calculator</h1>
     <div class="row justify-content-center">
         <div class="col-md-6">
             <!-- Upload Form -->
@@ -36,6 +36,7 @@
             </form>
             <!-- Result Notification -->
             <div id="result" class="result-alert alert alert-info text-center fw-semibold d-none"></div>
+            <div id="jdlresult" class="result-alert alert alert-info text-center fw-semibold d-none"></div>
         </div>
     </div>
 </div>
@@ -109,6 +110,16 @@
             showResult(emojiHappiness, 'success');
         } catch (err) {
             showResult('Error analyzing emoji.', 'danger');
+        }
+        try {
+            const response = await fetch('/jdlanalyze', {
+                method: 'POST',
+                body: formData
+            });
+            const result = await response.json();
+            showJDLResult(result, 'success');
+        } catch (err) {
+            showJDLResult('Error analyzing emoji.', 'danger');
         }
     });
 </script>

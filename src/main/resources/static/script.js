@@ -37,3 +37,9 @@ function analyzeResult(result) {
         resultDiv.className = `result-alert alert alert-${type} text-center fw-semibold`;
         resultDiv.classList.remove('d-none');
     }
+    function showJDLResult(message, type) {
+        const resultDiv = document.getElementById('jdlresult');
+        resultDiv.innerHTML = message;
+        resultDiv.className = `result-alert alert alert-${type} text-center fw-semibold`;
+        resultDiv.classList.remove('d-none');
+    }

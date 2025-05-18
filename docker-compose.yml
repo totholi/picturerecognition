@@ -1,8 +1,14 @@
 services:
-  picturerecognition:
-    image: picturerecognition
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+  web-service:
+    depends_on:
+      - model-service
+    image: totholi/picturerecognition:latest
     ports:
-      - 8082:8082
+      - "80:8082"
+    restart: always
+  model-service:
+    image: totholi/djl-serving:latest
+    ports:
+      - "8080:8080"
+    restart: always
+
